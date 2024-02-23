@@ -4,15 +4,15 @@ const initialState = {
   value: false,
 };
 
-export const passwordsSlice = createSlice({
+export const isProcessedSlice = createSlice({
   name: "isProcessed",
   initialState,
   reducers: {
-    changeState: (state, action) => {
+    updateReports: (state, action) => {
       state.value = action.payload;
     },
   },
 });
 
-export const { addPassword } = passwordsSlice.actions;
-export default passwordsSlice.reducer;
+export const { updateReports } = isProcessedSlice.actions;
+export default isProcessedSlice.reducer;
