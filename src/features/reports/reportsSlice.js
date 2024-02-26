@@ -14,5 +14,5 @@ export const reportsSlice = createSlice({
   },
 });
 
-export const { addReport } = reportsSlice.actions;
+export const { updateReports } = reportsSlice.actions;
 export default reportsSlice.reducer;

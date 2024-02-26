@@ -4,6 +4,7 @@ import { useQuery } from "react-query";
 import { setSelected } from "./features/selectedSlice/selectedSlice";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import book_logo from "./images/book.jpg";
 
 function Report(props) {
   const dispatch = useDispatch();
@@ -33,18 +34,32 @@ function Report(props) {
     return (
       <motion.div
         layout
-        className="border-2 border-black bg-white rounded-md shadow-md py-4 px-6 my-4 absolute"
+        className="border-2 border-black bg-white rounded-md shadow-md my-4 absolute"
         layoutId={report._id}
-        onClick={() => {
-          dispatch(setSelected(null));
+        initial={{
+          fontSize: "1em",
+          scale: 0.5,
+          padding: "16px",
         }}
         animate={{
-          x: "50vw",
-          boxShadow: "20px 20px 0, rgba(255, 255, 255, 0.2)",
+          width: "50vw",
+          height: "60vh",
+          top: "7%",
+          right: "25vw",
+          margin: "0",
+          scale: 1,
+          padding: "16px",
         }}
+        transition={{ duration: 0.5 }}
       >
         <motion.h1 className="text-xl">{report.title}</motion.h1>
-        <motion.p>{report.report}</motion.p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.5 }}
+        >
+          {report.report}
+        </motion.p>
       </motion.div>
     );
   }
@@ -53,8 +68,10 @@ function Report(props) {
     <AnimatePresence>
       <motion.div
         layoutId={report._id}
-        className="border-2 border-black m-2 rounded-lg text-center"
+        className="border-2 border-black m-2 rounded-lg text-center flex flex-col justify-center"
+        transition={{ duration: 0.00001 }}
       >
+        <motion.img className="items-center" src={book_logo}></motion.img>
         <motion.h1>{report.title}</motion.h1>
       </motion.div>
     </AnimatePresence>
