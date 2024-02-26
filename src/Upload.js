@@ -1,39 +1,60 @@
-import { useState } from "react";
-import { useQuery } from "react-query";
+import { useMutation } from "react-query";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setPage } from "./features/page/pageSlice";
+import axios from "axios";
 
 function Upload() {
-  const [title, setTitle] = useState();
-  const [author, setAuthor] = useState();
-  const [book, setBook] = useState();
+  const page = useSelector((state) => state.page.value);
+  const dispatch = useDispatch();
 
-  const uploadRes = useQuery([title, author, book], () => {});
+  const mutation = useMutation({
+    mutationFn: (formData) => {
+      return axios.post("/api/books/new", formData);
+    },
+    onSuccess: (data, variables, context) => {
+      dispatch(setPage("browse"));
+    },
+  });
+  const onSubmit = (event) => {
+    event.preventDefault();
+    mutation.mutate(new FormData(event.target));
+  };
 
-  return (
-    <div className="px-80">
-      <form className="flex flex-col justify-content-center content-center m-8 px-4 border rounded-md">
-        <input
-          className="border mx-8 my-2 rounded-md text-center"
-          id="title"
-          type="text"
-          placeholder="Book Title"
-        ></input>
-        <input
-          className="border mx-8 my-2 rounded-md text-center"
-          id="author"
-          type="text"
-          placeholder="Author"
-        ></input>
-        <input className="mx-8 self-center" id="book" type="file"></input>
-
-        <button
-          className="mx-30 self-center border rounded-md bg-slate-200"
-          type="submit"
+  if (page === "upload") {
+    return (
+      <div className="px-80">
+        <form
+          className="flex flex-col justify-content-center content-center m-8 px-4 border rounded-md"
+          onSubmit={onSubmit}
         >
-          Submit
-        </button>
-      </form>
-    </div>
-  );
+          <input
+            className="border mx-8 my-2 rounded-md text-center"
+            id="title"
+            type="text"
+            placeholder="Book Title"
+            name="title"
+          ></input>
+          <input
+            className="border mx-8 my-2 rounded-md text-center"
+            id="author"
+            type="text"
+            placeholder="Author"
+            name="author"
+          ></input>
+          <input className="mx-8 self-center" type="file" name="book"></input>
+
+          <button
+            className="mx-30 self-center border rounded-md bg-slate-200"
+            type="submit"
+            value="submit"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    );
+  }
 }
 
 export default Upload;

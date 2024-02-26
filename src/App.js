@@ -10,6 +10,7 @@ function App() {
       <Navbar />
       <div>
         <ReportsList />
+        <Upload />
       </div>
     </div>
   );
