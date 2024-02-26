@@ -52,6 +52,18 @@ function Report(props) {
         }}
         transition={{ duration: 0.5 }}
       >
+        <motion.div className="flex justify-end align-end mb-0">
+          <motion.button
+            className="border-2 border-black rounded-xl px-2"
+            onClick={() => {
+              console.log("deselect");
+              dispatch(setSelected(null));
+            }}
+          >
+            X
+          </motion.button>
+        </motion.div>
+
         <motion.h1 className="text-xl">{report.title}</motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -69,7 +81,7 @@ function Report(props) {
       <motion.div
         layoutId={report._id}
         className="border-2 border-black m-2 rounded-lg text-center flex flex-col justify-center"
-        transition={{ duration: 0.00001 }}
+        transition={{ duration: 0.2 }}
       >
         <motion.img className="items-center" src={book_logo}></motion.img>
         <motion.h1>{report.title}</motion.h1>
