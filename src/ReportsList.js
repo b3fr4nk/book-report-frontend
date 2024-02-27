@@ -108,7 +108,9 @@ function ReportsList() {
                     console.log(contentPage);
                   }}
                 >
-                  <button>{pageNum + 1} </button>
+                  <button className="border rounded-2xl border border-gray-300 px-2 bg-gray-100 hover:bg-white">
+                    {pageNum + 1}{" "}
+                  </button>
                 </span>
               );
             }
@@ -120,7 +122,7 @@ function ReportsList() {
                   console.log(contentPage);
                 }}
               >
-                <button className="text-blue-500 underline">
+                <button className="border border-gray-300 rounded-2xl px-2 bg-gray-200 hover:bg-white scale-125">
                   {pageNum + 1}{" "}
                 </button>
               </span>

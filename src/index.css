@@ -3,5 +3,6 @@
 @tailwind utilities;
 
 body {
-  background-color: rgba(243, 244, 246);
+  background-color: rgb(255, 255, 255);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif, monospace;
 }

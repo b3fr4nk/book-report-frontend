@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 
 function App() {
   return (
-    <div className="App bg-gray-100">
+    <div className="App">
       <header className="App-header"></header>
       <Navbar />
       <div>

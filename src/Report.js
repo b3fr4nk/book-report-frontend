@@ -34,7 +34,7 @@ function Report(props) {
     return (
       <motion.div
         layout
-        className="border-2 border-black bg-white rounded-md shadow-md my-4 absolute"
+        className="border-2 border-black bg-gray-300 rounded-md shadow-xl my-4 absolute bg-gray-50 shadow-xl shadow-black"
         layoutId={report._id}
         initial={{
           fontSize: "1em",
@@ -54,7 +54,7 @@ function Report(props) {
       >
         <motion.div className="flex justify-end align-end mb-0">
           <motion.button
-            className="border-2 border-black rounded-xl px-2"
+            className="border bg-gray-100 border-gray-200 rounded-xl px-2 hover:bg-white"
             onClick={() => {
               console.log("deselect");
               dispatch(setSelected(null));
@@ -80,7 +80,7 @@ function Report(props) {
     <AnimatePresence>
       <motion.div
         layoutId={report._id}
-        className="border-2 border-black m-2 rounded-lg text-center flex flex-col justify-center"
+        className="border-2 border-gray-300 m-2 rounded-xl text-center flex flex-col justify-center bg-gray-100 shadow-xl shadow-gray-300 p-2"
         transition={{ duration: 0.2 }}
       >
         <motion.img className="items-center" src={book_logo}></motion.img>
