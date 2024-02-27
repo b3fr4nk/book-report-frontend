@@ -25,7 +25,7 @@ function Upload() {
     return (
       <div className="px-80">
         <form
-          className="flex flex-col justify-content-center content-center m-8 px-4 border rounded-md"
+          className="flex flex-col justify-content-center content-center m-8 px-4 pb-16 border rounded-md shadow-lg shadow-gray"
           onSubmit={onSubmit}
         >
           <input
@@ -42,10 +42,14 @@ function Upload() {
             placeholder="Author"
             name="author"
           ></input>
-          <input className="mx-8 self-center" type="file" name="book"></input>
+          <input
+            className="mx-8 my-4 self-center"
+            type="file"
+            name="book"
+          ></input>
 
           <button
-            className="mx-30 self-center border rounded-md bg-slate-200"
+            className="mx-30 mt-8 p-4 self-center border border-gray-300 rounded-md bg-gray-100 hover:bg-white"
             type="submit"
             value="submit"
           >
