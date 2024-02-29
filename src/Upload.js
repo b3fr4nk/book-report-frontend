@@ -10,7 +10,7 @@ function Upload() {
 
   const mutation = useMutation({
     mutationFn: (formData) => {
-      return axios.post("/api/books/new", formData);
+      return axios.post("http://localhost:3000/api/books/new", formData);
     },
     onSuccess: (data, variables, context) => {
       dispatch(setPage("browse"));
