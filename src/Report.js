@@ -34,7 +34,7 @@ function Report(props) {
     return (
       <motion.div
         layout
-        className="border-2 border-black bg-gray-300 rounded-md shadow-xl my-4 absolute bg-gray-50 shadow-xl shadow-black"
+        className="border-2 border-purple-400 bg-gray-300 rounded-md shadow-xl absolute bg-gray-50 shadow-xl shadow-gray-800"
         layoutId={report._id}
         initial={{
           fontSize: "1em",
@@ -64,8 +64,9 @@ function Report(props) {
           </motion.button>
         </motion.div>
 
-        <motion.h1 className="text-xl">{report.title}</motion.h1>
+        <motion.h1 className="text-xl my-4 px-2">{report.title}</motion.h1>
         <motion.p
+          className="p-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3, delay: 0.5 }}

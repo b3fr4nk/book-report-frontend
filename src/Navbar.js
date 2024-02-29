@@ -12,7 +12,7 @@ function Navbar() {
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between flex-row">
           <div class="flex space-x-8 items-center">
-            <h1 className="text-xl text-gray-600 text-center align-middle text-black">
+            <h1 className="text-xl text-gray-800 text-center align-middle text-black">
               AI Book Reports
             </h1>
             <div className="hidden md:flex items-center space-x-4">
